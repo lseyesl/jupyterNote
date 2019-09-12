@@ -1,0 +1,17 @@
+# 视角转动
+
+## 物体随鼠标视角转动
+
+```c#
+    Transform t_player;
+    RaycastHit hit;
+    Ray ray;
+    void Update(){
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(ray,out hit)){
+            Transform objectHit = hit.transform;
+            float masX = Input.GetAxis("Mouse X")* 1f;
+            t_player.transform.Rotate(new Vecor3(0,mousX,0));
+        }
+    }
+```
