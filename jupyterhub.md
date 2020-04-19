@@ -99,3 +99,16 @@ sudo apt install default-jdk
     useradd
     userdel
 ```
+
+## latex
+
+中文不显示，可能是字体原因。
+查看配置文件中的中文字体在系统中是否存在。
+
+```bash
+    fc-list :lang=zh #显示中文字体
+    
+    apt install fonts-XX #安装字体
+    
+    fc-cache -f -s -v #字体缓存清理
+```

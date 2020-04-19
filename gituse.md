@@ -2,7 +2,7 @@
 
 
 查看某以文件的历史
-```git log pretty=oneline '文件名'```
+```git log --pretty=oneline '文件名'```
 
 查看某次提交的更改内容
 ```git show commit-id ```
@@ -33,4 +33,9 @@
 ```git
     git blame -L startLine:endLine file
     //endLine [realy line number, +/- line number];
+```
+
+修改log日期
+```git
+    git config --global log.date local
 ```
