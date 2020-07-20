@@ -39,3 +39,10 @@
 ```git
     git config --global log.date local
 ```
+
+远程覆盖本地
+```git
+    git fetch --all
+    git reset --hard origin/master 
+    git pull 
+```
