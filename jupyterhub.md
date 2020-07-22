@@ -9,7 +9,7 @@ free -m
 
 df -h
 
-sudo dd if=/dev/zero of=/swapfile bs=1G count=4 #看格式化文件 bs=1M
+sudo dd if=/dev/zero of=/swapfile bs=1M count=4000 #看格式化文件 bs=1M
 
 ls -lh /swapfile
 
