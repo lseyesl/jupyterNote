@@ -36,3 +36,50 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 
  #when your system is back, you will be able to bind to that port successfully.
 ```
+
+### wsl
+
+```bash
+    netsh interface portproxy add v4tov4 listenport=监听端口 connectaddress=wsl_ip connectport=监听端口 listenaddress=* protocol=tcp
+```
+如果不用转发了可以执行删除命令
+```bash
+netsh interface portproxy delete v4tov4 listenport=8080 protocol=tcp
+```
+
+
+## http proxy
+
+由于接口分块传输导致http-proxy-middle无法接收数据
+```javascript
+onProxyRes(proxyRes, req, res) {
+    var chunked = /chunked/.test(
+        proxyRes.headers["transfer-encoding"]
+    );
+    if (chunked) {
+        // If chunked, then gather all chunks and pass it on unchunked. Remove transfer-encoding header.
+        proxyRes.headers["transfer-encoding"] = "";
+        res.write = (function (override) {
+            return function (chunk, encoding, callback) {
+                override.call(
+                    res,
+                    chunk,
+                    "binary",
+                    callback
+                );
+            };
+        })(res.write);
+        res.end = (function (override) {
+            return function (chunk, encoding, callback) {
+                override.call(
+                    res,
+                    chunk,
+                    "binary",
+                    callback
+                );
+            };
+        })(res.end);
+    }
+}
+
+```
