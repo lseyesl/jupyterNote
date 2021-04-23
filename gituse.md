@@ -86,7 +86,10 @@ git checkout .
 ```git
     git reset --soft HEAD^
 ```
-
+清除缓存
+```git
+    npm cache clean --force
+```
 
 git commit header 描述:
 
