@@ -2,6 +2,17 @@
 
 ## ubuntu
 
+### 任务切换前后台
+
+`Ctrl + Z` 挂起任务
+
+```bash
+    jobs // 显示挂起的进程
+    
+    bg %N //使第N个项目在后台运行
+    fg %N //使第N个项目在前台运行
+```
+
 ### node 调试
 
 命令行调试
@@ -19,6 +30,14 @@
 ```bash
     lsof -i:port
 ```
+
+### 查看日志
+
+```bash
+    less file.log
+```
+
+按`:G`到文件底部
 
 ### webpack
 
@@ -70,10 +89,34 @@ socks5 win-ip proxy
 ### docker
 
 根据dockerfile生成docker容器
-```bash
-docker build - < Dockerfile
 
-docker build . # 在Dockerfile文件目录下
+```bash
+    docker build - < Dockerfile
+
+    docker build . # 在Dockerfile文件目录下
+```
+
+```bash
+    docker ps #查看运行中的docker容器
+    
+    docker ps -l # 查看最后运行docker容器
+    
+    docker ps -a # 查看所有docker 容器
+    
+    docker exec -it docker容器ID /bin/bash # 进入容器
+    
+    docker inspect docker容器名 # 查看容器ip
+    
+    docker stop docker容器ID # 停止
+    
+    docker start docker容器ID # 启动
+    
+    docker restart docker容器ID # 启动
+    
+    docker cp mycontainer:/opt/testnew/file.txt /opt/test/ # 复制
+    
+    docker run -it 容器名 /bin/bash # 启动容器并进入
+     
 ```
 
 ### k8s
@@ -180,6 +223,12 @@ onProxyRes(proxyRes, req, res) {
 
 ## mac
 
+### 磁盘大小
+
+```bash 
+    du -sh * | sort -rh
+```
+
 ### chrome 设置跨域
 
 ```bash
@@ -209,6 +258,8 @@ onProxyRes(proxyRes, req, res) {
     mongorestore  -h  dbhost[要导入数据库ip]  -d dbname[要导入数据库名称] dbDirectory[本地备份数据库目录]
     ## 覆盖还原数据库
     mongorestore  -h  dbhost[要导入数据库ip]  -d dbname[要导入数据库名称] dbDirectory[本地备份数据库目录] --drop
+    
+    ## dbhost 可以是ip:port ip 
 
 ```
 
@@ -257,3 +308,26 @@ onProxyRes(proxyRes, req, res) {
     
     nginx -s reload
 ```
+
+
+### pm2
+
+```bash
+    pm2 list // 显示所有的pm2监听进程
+    
+    
+    
+    
+    pm2 monit // 查看性能 监控cpu 内存 使用率
+```
+
+### mac 解压
+
+# 后面两个参数，xxx.zip是文件名， xx为解压后的文件夹名称
+ditto -V -x -k --sequesterRsrc --rsrc xxx.ZIP xx
+
+### mac vim 假死
+
+看看是不是中文输入法
+
+`Ctrl + c` 重置vim 编辑状态
