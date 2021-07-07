@@ -116,6 +116,8 @@ socks5 win-ip proxy
     docker cp mycontainer:/opt/testnew/file.txt /opt/test/ # 复制
     
     docker run -it 容器名 /bin/bash # 启动容器并进入
+    
+     docker exec -it  docker容器ID  /bin/bash # 进入容器
      
 ```
 
@@ -229,6 +231,10 @@ onProxyRes(proxyRes, req, res) {
     du -sh * | sort -rh
 ```
 
+```bash
+    ncdu / --exclude /Volumes --exclude /System/Volumes
+```
+
 ### chrome 设置跨域
 
 ```bash
@@ -307,6 +313,8 @@ onProxyRes(proxyRes, req, res) {
     /usr/local/etc/nginx
     
     nginx -s reload
+    
+    brew services start nginx # 放到系统启动里
 ```
 
 
@@ -331,3 +339,35 @@ ditto -V -x -k --sequesterRsrc --rsrc xxx.ZIP xx
 看看是不是中文输入法
 
 `Ctrl + c` 重置vim 编辑状态
+
+
+### mac jenkins 启动
+
+```bash
+docker run \
+  --rm \
+  -u root \
+  -p 8080:8080 \
+  -v jenkins-data:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /Users/fl/docker_home:/home \
+  jenkinsci/blueocean
+```
+
+
+### vscode 插件
+
+```
+    npm i -g yo generator-code // vscode 插件生成脚手架
+
+    npm i -g vsce // vscode 打包工具
+    
+    vsce package // 打包
+```
+
+
+### mac 硬盘大文件查询
+
+```bash
+ncdu / --exclude /Volumes --exclude /System/Volumes
+```

@@ -106,3 +106,6 @@ Header 部分只有一行，包括三个字段：type（必需）、scope（可�
         revert: 版本回滚
     scope: 用于说明 commit 影响的范围，比如: views, component, utils, test...
     subject: commit 目的的简短描述
+    
+    
+git checkout --orphan doc  创建没有父分支的新分支（即没有log 也没有commit）
