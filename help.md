@@ -103,7 +103,7 @@ socks5 win-ip proxy
     
     docker ps -a # 查看所有docker 容器
     
-    docker exec -it docker容器ID /bin/bash # 进入容器
+    docker exec -it docker容器ID [/bin/bash | sh] # 进入容器
     
     docker inspect docker容器名 # 查看容器ip
     
@@ -115,9 +115,11 @@ socks5 win-ip proxy
     
     docker cp mycontainer:/opt/testnew/file.txt /opt/test/ # 复制
     
-    docker run -it 容器名 /bin/bash # 启动容器并进入
+    docker run -it 容器名 [/bin/bash | sh]  # 启动容器并进入
     
      docker exec -it  docker容器ID  /bin/bash # 进入容器
+     
+     docker logs 容器ID # 查看console日志
      
 ```
 
@@ -370,4 +372,13 @@ docker run \
 
 ```bash
 ncdu / --exclude /Volumes --exclude /System/Volumes
+```
+
+
+### 关闭telnet
+
+```
+> ctrl + ]
+
+> close
 ```
