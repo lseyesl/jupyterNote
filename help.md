@@ -382,3 +382,42 @@ ncdu / --exclude /Volumes --exclude /System/Volumes
 
 > close
 ```
+
+
+### ssh key
+
+```
+ssh-keygen -t ed25519  -C "emial@addr.com"
+
+# gen two file key key.pub
+ssh-add -K  key
+```
+
+```
+docker image prune -a --force --filter "until=2021-08-01T00:00:00"
+```
+```bash 
+sudo docker rmi `sudo docker images -a  | grep '^op' | grep 'months' | awk '{print 占位符}'` 
+#按月删除docker image
+```
+
+
+### https 证书
+
+第一步，生成服务器私钥：
+
+```bash
+openssl genrsa -out server.key 1024
+```
+
+第二步，根据私钥和输入的信息生成证书请求文件：
+
+```bash
+openssl req -new -key server.key -out server.csr
+```
+
+第三步：用第一步的私钥和第二步的请求文件生成证书：
+
+```bash
+openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
+```
