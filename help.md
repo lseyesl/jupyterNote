@@ -393,7 +393,7 @@ ssh-keygen -t ed25519  -C "emial@addr.com"
 ssh-add -K  key
 ```
 
-```
+```bash
 docker image prune -a --force --filter "until=2021-08-01T00:00:00"
 ```
 ```bash 
@@ -421,3 +421,16 @@ openssl req -new -key server.key -out server.csr
 ```bash
 openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
 ```
+当需要带扩展时需要添加一下属性
+```bash
+openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.crt -extensions v3_req -extfile openssl.conf
+```
+
+mac 添加证书
+```bash 
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain server.crt
+```
+
+### chrome unsafe
+
+空白处点击，然后输入`thisisunsafe`

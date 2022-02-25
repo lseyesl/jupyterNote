@@ -91,6 +91,11 @@ git checkout .
     npm cache clean --force
 ```
 
+修改branch 显示(直接显示，而不是新开页)
+```git
+    git config --global pager.branch false
+```
+
 git commit header 描述:
 
 Header 部分只有一行，包括三个字段：type（必需）、scope（可选）和subject（必需）。
