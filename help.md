@@ -355,7 +355,10 @@ docker run \
   -v /Users/fl/docker_home:/home \
   jenkinsci/blueocean
 ```
-
+```bash
+    docker run -u root -d -p 8080:8080 -p 50000:50000 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkinsci/blueocean
+```
+去掉 rm 停止后不删除
 
 ### vscode 插件
 
@@ -434,3 +437,15 @@ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keyc
 ### chrome unsafe
 
 空白处点击，然后输入`thisisunsafe`
+
+### xcode command
+
+```bash  
+    # node 使用的默认处理
+    sudo xcode-select -s /Library/Developer/CommandLineTools
+```
+
+```bash
+    # 使用xcode 编辑c c++ 代码
+    sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+```

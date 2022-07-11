@@ -96,6 +96,12 @@ git checkout .
     git config --global pager.branch false
 ```
 
+head 强制提交
+```git
+    git push origin head:master -f 
+```
+**head 本地head。 master 远程分支名**
+
 git commit header 描述:
 
 Header 部分只有一行，包括三个字段：type（必需）、scope（可选）和subject（必需）。
