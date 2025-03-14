@@ -449,3 +449,10 @@ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keyc
     # 使用xcode 编辑c c++ 代码
     sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 ```
+
+### windows activated
+
+```bash
+# https://massgrave.dev/
+irm https://get.activated.win | iex
+```
